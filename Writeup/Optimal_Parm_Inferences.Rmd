@@ -1,0 +1,76 @@
+---
+title: "Data_Processing_Optimal_Parm"
+author: "Vinuraj Devaraj"
+date: "4/29/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(lsr)
+# Read data set
+data_df = read.csv("D:/PhD Program/Final Research/Dissertation/Writeup/best_parm_data.csv")
+```
+
+## R Markdown
+ Read dataset and convert the variables to factors, especially those whose impact needs to be assessed
+
+
+```{r cars}
+# Convert variables to determine impact to factors
+data_df$Anomaly.Treated. <- as.factor(data_df$Anomaly.Treated)
+data_df$Hilbert.Transformed. <- as.factor(data_df$Hilbert.Transformed.)
+data_df$MFCC.included. <- as.factor(data_df$MFCC.included.)
+data_df$Sample.Duration <- as.factor(data_df$Sample.Duration)
+data_df$Data.Scaled. <- as.factor(data_df$Data.Scaled.)
+
+```
+
+## Perform Kruskal Wallis test
+Perform Kruskal Wallis test to determine significance of data augmentation 
+
+```{r data_aug, echo=FALSE}
+kruskal_model <- kruskal.test(Best.Accuracy~Sample.Duration, data=data_df)
+print(kruskal_model)
+print("Effect Size")
+lsr::cohensD(data_df$Best.Accuracy~data_df$Sample.Duration)
+```
+
+
+Perform Kruskal Wallis test to determine significance outlier treatement
+
+```{r outlier, echo=FALSE}
+kruskal_model <- kruskal.test(Best.Accuracy~Anomaly.Treated., data=data_df)
+print(kruskal_model)
+print("Effect Size")
+lsr::cohensD(data_df$Best.Accuracy~data_df$Anomaly.Treated.)
+```
+Perform Kruskal Wallis test to determine significance MFCC features
+
+```{r MFCC, echo=False}
+kruskal_model <- kruskal.test(Best.Accuracy~MFCC.included., data=data_df)
+print(kruskal_model)
+print("Effect Size")
+lsr::cohensD(data_df$Best.Accuracy~data_df$MFCC.included.)
+```
+Perform Kruskal Wallis test to determine significance of Hilbert Transformation
+
+```{r hilbert_transform, echo=False}
+kruskal_model <- kruskal.test(Best.Accuracy~Hilbert.Transformed., data=data_df)
+print(kruskal_model)
+print("Effect Size")
+lsr::cohensD(data_df$Best.Accuracy~data_df$Hilbert.Transformed.)
+```
+
+Perform Kruskal Wallis test to determine significance of data scaling
+
+```{r hilbert_transform, echo=False}
+kruskal_model <- kruskal.test(Best.Accuracy~Data.Scaled., data=data_df)
+print(kruskal_model)
+print("Effect Size")
+lsr::cohensD(data_df$Best.Accuracy~data_df$Data.Scaled.)
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent 
+printing of the R code that generated the plot.
