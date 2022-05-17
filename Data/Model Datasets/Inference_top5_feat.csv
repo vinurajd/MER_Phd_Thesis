@@ -1,0 +1,5 @@
+Emotion Class,Description,Spectral Centroid Range,Loudness Range,Spectral Rolloff,Fundamental Frequency Range,Mel Frequency band 57 Range
+Q1,"Happy, Surprise",1082.34 (344.8 to 1802.19 ),-15.81 dB (-26.32 dB to -9.26 dB ),2329.39 (559.08 to 4205.72 ),286.0 Hz (164.82 Hz to 566.52 Hz ),28.0 Hz (1.33 Hz to 168.0 Hz )
+Q2,"Disgust, Anger, Fear",1211.09 (469.91 to 1885.44 ),-12.92 dB (-23.25 dB to -7.56 dB ),2530.04 (929.92 to 3675.12 ),459.16 Hz (148.6 Hz to 963.27 Hz ),145.33 Hz (1.33 Hz to 638.0 Hz )
+Q3,Sad,765.54 (289.43 to 1553.36 ),-17.71 dB (-30.09 dB to -9.59 dB ),1662.56 (427.32 to 3611.56 ),226.98 Hz (132.03 Hz to 495.34 Hz ),8.67 Hz (0.0 Hz to 48.67 Hz )
+Q4,Calm,735.56 (142.58 to 1563.31 ),-17.77 dB (-28.8 dB to -10.75 dB ),1643.44 (169.49 to 3865.96 ),226.59 Hz (131.73 Hz to 466.46 Hz ),4.67 Hz (0.0 Hz to 32.67 Hz )
